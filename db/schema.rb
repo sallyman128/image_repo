@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2021_04_27_234132) do
 
   create_table "pictures", force: :cascade do |t|
     t.string "name"
-    t.string "image_path"
+    t.string "image_filename"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
