@@ -3,7 +3,7 @@ require 'rails_helper'
 Rspec.describe Picture, type: :model do
   picture = Picture.new(
     name: "picture of a baby elephant",
-    image: ""
+    image: "" #an image url
   )
 
   it 'has a valid image attribute' do
@@ -13,7 +13,7 @@ Rspec.describe Picture, type: :model do
   it 'is invalid if that image already exists' do 
     duplicate_picture = Picture.new(
       name: "Same picture of a baby elephant",
-      image: ""
+      image: "" #an image url
     )
 
   end
