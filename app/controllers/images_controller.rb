@@ -1,25 +1,21 @@
 class ImagesController < ApplicationController
   before_action :set_image, only: %i[ show edit update destroy ]
 
-  # GET /images or /images.json
+
   def index
     @images = Image.all
   end
 
-  # GET /images/1 or /images/1.json
   def show
   end
 
-  # GET /images/new
   def new
     @image = Image.new
   end
 
-  # GET /images/1/edit
   def edit
   end
 
-  # POST /images or /images.json
   def create
     @image = Image.new(image_params)
 
@@ -34,7 +30,6 @@ class ImagesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /images/1 or /images/1.json
   def update
     respond_to do |format|
       if @image.update(image_params)
@@ -47,7 +42,6 @@ class ImagesController < ApplicationController
     end
   end
 
-  # DELETE /images/1 or /images/1.json
   def destroy
     @image.destroy
     respond_to do |format|
@@ -56,9 +50,11 @@ class ImagesController < ApplicationController
     end
   end
 
-  def delete_selection
-    raise params.inspect
+  def select
+    @images = Image.all
   end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
