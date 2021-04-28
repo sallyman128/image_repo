@@ -56,6 +56,10 @@ class ImagesController < ApplicationController
     end
   end
 
+  def delete_selection
+    raise params.inspect
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_image
@@ -64,6 +68,6 @@ class ImagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def image_params
-      params.require(:image).permit(:title, :caption)
+      params.require(:image).permit(:title, :caption, :picture)
     end
 end

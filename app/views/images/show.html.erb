@@ -10,5 +10,9 @@
   <%= @image.caption %>
 </p>
 
+<div style="width:400px; height:auto">
+  <%= image_tag(@image.picture, style:"width:100%") %>
+</div>
+
 <%= link_to 'Edit', edit_image_path(@image) %> |
 <%= link_to 'Back', images_path %>
