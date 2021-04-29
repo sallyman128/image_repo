@@ -55,7 +55,16 @@ class ImagesController < ApplicationController
   end
 
   def many_destroy
-    raise params.inspect
+    @images = []
+    params[:images].each do |image_id|
+      @images << Image.find(image_id)
+    end
+    
+    @images.each do |image|
+      image.destroy
+    end
+
+    redirect_to images_url, notice: "Images were successfully destroyed."
   end
 
 
