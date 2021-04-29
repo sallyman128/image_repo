@@ -54,6 +54,9 @@ class ImagesController < ApplicationController
     @images = Image.all
   end
 
+  def many_destroy
+    raise params.inspect
+  end
 
 
   private
