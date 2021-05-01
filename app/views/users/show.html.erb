@@ -1,3 +1,13 @@
 <h1><%= @user.username %></h1>
 
+<h2>Images</h2>
+<ul>
+  <% @user.images.each do |image| %>
+    <li>
+      <span style="width:400px, height:auto">
+        <%= link_to image_tag(image.picture, style:"width:20%"), image_path(image) %>
+      </span>
+    </li>
+  <% end %>
+</ul>
 <%= link_to 'Back', images_path %>

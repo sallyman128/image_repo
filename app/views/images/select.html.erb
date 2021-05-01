@@ -19,8 +19,6 @@
       <% @images.each do |image| %>
         <tr>
           <td><%= check_box_tag("images[]", image.id) %></td>
-          <td><%= image.title %></td>
-          <td><%= image.caption %></td>
         </tr>
       <% end %>
     </tbody>

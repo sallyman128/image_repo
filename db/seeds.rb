@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ title: 'Star Wars' }, { title: 'Lord of the Rings' }])
 #   Character.create(title: 'Luke', movie: movies.first)
 
-image1 = Image.create(title: "elephant_A", caption: "elephant stuff")
-image2 = Image.create(title: "elephant_B", caption: "some caption")
-image3 = Image.create(title: "elephant_C", caption: "elphant eating")
-image4 = Image.create(title: "elephant_D", caption: "woohoo elephant!")
+image1 = Image.create()
+image2 = Image.create()
+image3 = Image.create()
+image4 = Image.create()
 
 
 image1.picture.attach(io: File.open("app/assets/images/african-elephant-close-up.jpg"), filename: "african-elephant-close-up.jpg")

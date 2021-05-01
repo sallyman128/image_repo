@@ -1,12 +1,11 @@
 class ImagesController < ApplicationController
-  before_action :set_image, only: %i[ show edit update destroy ]
-
 
   def index
     @images = Image.all
   end
 
   def show
+    set_image
   end
 
   def new
@@ -14,40 +13,34 @@ class ImagesController < ApplicationController
   end
 
   def edit
+    set_image
   end
 
   def create
     @image = Image.new(image_params)
+    @image.user = current_user
 
-    respond_to do |format|
-      if @image.save
-        format.html { redirect_to @image, notice: "Image was successfully created." }
-        format.json { render :show, status: :created, location: @image }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @image.errors, status: :unprocessable_entity }
-      end
+    if @image.save
+      redirect_to @image, confirm: "Are you sure?", notice: "Image was successfully created."
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   def update
-    respond_to do |format|
-      if @image.update(image_params)
-        format.html { redirect_to @image, notice: "Image was successfully updated." }
-        format.json { render :show, status: :ok, location: @image }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @image.errors, status: :unprocessable_entity }
-      end
+    set_image
+
+    if @image.update(image_params)
+      redirect_to @image, notice: "Image was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
+    set_image
     @image.destroy
-    respond_to do |format|
-      format.html { redirect_to images_url, notice: "Image was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to images_url, notice: "Image was successfully destroyed."
   end
 
   def select
