@@ -6,34 +6,24 @@ class ImagesController < ApplicationController
 
   def show
     set_image
+    @user = @image.user
+    current_user
   end
 
   def new
+    render_login_if_not_logged_in
     @image = Image.new
   end
 
-  def edit
-    set_image
-  end
-
   def create
+    render_login_if_not_logged_in
     @image = Image.new(image_params)
     @image.user = current_user
 
     if @image.save
-      redirect_to @image, confirm: "Are you sure?", notice: "Image was successfully created."
+      redirect_to user_path(@image.user), confirm: "Are you sure?", notice: "Image was successfully created."
     else
       render :new, status: :unprocessable_entity
-    end
-  end
-
-  def update
-    set_image
-
-    if @image.update(image_params)
-      redirect_to @image, notice: "Image was successfully updated."
-    else
-      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -43,21 +33,14 @@ class ImagesController < ApplicationController
     redirect_to images_url, notice: "Image was successfully destroyed."
   end
 
-  def select
-    @images = Image.all
-  end
-
-  def many_destroy
-    @images = []
+  def destroy_many
     params[:images].each do |image_id|
-      @images << Image.find(image_id)
-    end
-    
-    @images.each do |image|
+      image = Image.find(image_id)
       image.destroy
     end
 
-    redirect_to images_url, notice: "Images were successfully destroyed."
+    user = User.find(session[:user_id])
+    redirect_to user_path(user), notice: "Images were successfully destroyed."
   end
 
 
@@ -69,6 +52,6 @@ class ImagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def image_params
-      params.require(:image).permit(:title, :caption, :picture)
+      params.require(:image).permit(:picture)
     end
 end
