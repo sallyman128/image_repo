@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   delete "/images/destroy_many", to: "images#destroy_many"
   
-  resources :images
+  resources :images, only: [:new, :index, :show, :create, :destroy]
 
   resources :users, only: [:new, :create, :show]
 

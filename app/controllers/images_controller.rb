@@ -16,7 +16,6 @@ class ImagesController < ApplicationController
   end
 
   def create
-    render_login_if_not_logged_in
     @image = Image.new(image_params)
     @image.user = current_user
 
@@ -45,12 +44,10 @@ class ImagesController < ApplicationController
 
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_image
       @image = Image.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def image_params
       params.require(:image).permit(:picture)
     end

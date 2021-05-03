@@ -13,8 +13,8 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to images_path
     else
-      # @error = "Invalid username or password"
-      render :login, notice: "Invalid username or password"
+      @error = "Invalid username or password"
+      render :login
     end
   end
 
