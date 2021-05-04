@@ -2,8 +2,6 @@
 
 <h2>Images</h2>
 
-
-
 <% if @user == @current_user && @images.size > 0 %>
   <%= form_tag("/images/destroy_many", method: 'delete' ) do %>
     <table>
@@ -23,8 +21,7 @@
     <br>
     <%= submit_tag "Delete selection", data: {confirm: "Are you sure you want to delete the selected images?"} %>
   <% end %>
-
-  <p><%= link_to "Upload Image", new_image_path %></p>
+  
 <% else %>
   <table>
     <tbody>
