@@ -9,7 +9,7 @@
 # Running Test Suite
   This app uses rspec to test the models and features.
   
-  In your terminal, run "$ rspec spec" to execute all tests. You can also execute specific groupings of tests by referencing the correct directory. For example, "$ rspec spec/models" will execute the image_spec and user_spec tests.
+  In your terminal, run "$ rspec spec" to execute all tests. You can also execute specific groupings of tests by referencing the relevant directory. For example, "$ rspec spec/models" will execute the image_spec and user_spec tests within the models directory.
 
 # Contributors guide
   All are welcome to contribute to this project. If you would like to suggest any areas of improvement, please follow the typical git workflow:
@@ -29,3 +29,4 @@
   The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
