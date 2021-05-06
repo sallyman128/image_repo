@@ -14,3 +14,5 @@ describe UsersController do
     end
   end
 end
+
+# users can signup

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe SessiosnController do
+describe SessionsController do
   describe "POST create" do
     it 'creates a session user_id when logging in' do
       # expect{
@@ -14,3 +14,6 @@ describe SessiosnController do
     end
   end
 end
+
+# users can login
+# users can logout

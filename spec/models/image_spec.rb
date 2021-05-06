@@ -12,6 +12,11 @@ describe "Image" do
     @image.save
   end
 
+  it "is invalid with no picture attached" do
+    image = Image.new()
+    expect(image).to be_invalid
+  end
+
   it "has a picture attached" do
     expect(@image.picture).to be_attached
   end
