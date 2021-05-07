@@ -24,15 +24,25 @@ describe 'User features:' do
 
   it 'lets user sign up' do
     visit new_user_path
-    fill_in 'username', with: "squidward"
-    fill_in 'password', with: user.password
-    expect(click_on "Sign up").to change(User, :count).by(1)
 
-    # expect().to change(User, :count).by(1)
-    # expect {
-      #     post :create, params: { image: { user_id: user.id , picture: blob_for('african-elephant-close-up.jpg') } }
-      #   }.to change(Image, :count).by(1)
+    fill_in 'user_username', with: "squidward"
+    fill_in 'user_password', with: "clarinet"
+    click_on "Create User"
 
-    # expect(page).to have_content(""@user.username)
+    expect(page).to have_content("Logged in as: squidward")
+  end
+
+  it 'lets user log in' do
+    visit login_path
+    fill_in "username", with: @user.username
+    fill_in "password", with: @user.password
+    click_on "Log in"
+
+    expect(page).to have_content("Logged in as: #{@user.username}")
+  end
+
+  it 'lets user log out' do
+    visit logout_path
+    expect(page).to have_content("logged out")
   end
 end
