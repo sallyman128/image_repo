@@ -9,7 +9,7 @@
 # Running Test Suite
   This app uses rspec to test the models and features.
   
-  In your terminal, run "$ rspec" to execute all tests. You can also execute specific groupings of tests by referencing the relevant directory. For example, "$ rspec spec/models" will execute the image_spec and user_spec tests within the models directory.
+  In your terminal, run "$ rspec" to execute all tests. You can also execute specific groupings of tests by referencing the relevant spec directory. For example, "$ rspec spec/models" will execute the image_spec and user_spec tests within the spec/models directory.
 
 # Contributors guide
   All are welcome to contribute to this project. If you would like to suggest any areas of improvement, please follow the typical git workflow:
